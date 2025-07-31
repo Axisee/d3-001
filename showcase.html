@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Visualization Showcase</title>
+    <link rel="stylesheet" href="showcase.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="showcase-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <h1>D3.js Visualization Showcase</h1>
+                </div>
+                <nav class="main-nav">
+                    <button class="nav-btn active" data-category="all">All</button>
+                    <button class="nav-btn" data-category="basic">Basic Charts</button>
+                    <button class="nav-btn" data-category="advanced">Advanced</button>
+                    <button class="nav-btn" data-category="interactive">Interactive</button>
+                    <button class="nav-btn" data-category="geographic">Geographic</button>
+                </nav>
+                <div class="controls">
+                    <button class="theme-toggle" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="fullscreen-btn" title="Toggle Fullscreen">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search visualizations...">
+                <i class="fas fa-search"></i>
+            </div>
+            
+            <div class="categories">
+                <h3>Categories</h3>
+                <ul class="category-list">
+                    <li class="category-item active" data-category="all">
+                        <i class="fas fa-th"></i> All Visualizations
+                    </li>
+                    <li class="category-item" data-category="basic">
+                        <i class="fas fa-chart-bar"></i> Basic Charts
+                    </li>
+                    <li class="category-item" data-category="advanced">
+                        <i class="fas fa-project-diagram"></i> Advanced
+                    </li>
+                    <li class="category-item" data-category="interactive">
+                        <i class="fas fa-hand-pointer"></i> Interactive
+                    </li>
+                    <li class="category-item" data-category="geographic">
+                        <i class="fas fa-globe"></i> Geographic
+                    </li>
+                </ul>
+            </div>
+
+            <div class="settings">
+                <h3>Settings</h3>
+                <div class="setting-group">
+                    <label>Animation Speed</label>
+                    <input type="range" id="animationSpeed" min="0.5" max="3" step="0.1" value="1">
+                </div>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="autoPlay" checked> Auto-play animations
+                    </label>
+                </div>
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="showTooltips" checked> Show tooltips
+                    </label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h2 id="contentTitle">All Visualizations</h2>
+                <div class="view-options">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="visualization-grid" id="visualizationGrid">
+                <!-- Visualizations will be dynamically inserted here -->
+            </div>
+        </main>
+
+        <!-- Modal for detailed view -->
+        <div class="modal" id="visualizationModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle"></h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-visualization" id="modalVisualization"></div>
+                    <div class="modal-info">
+                        <div class="info-section">
+                            <h4>Description</h4>
+                            <p id="modalDescription"></p>
+                        </div>
+                        <div class="info-section">
+                            <h4>Code</h4>
+                            <pre><code id="modalCode"></code></pre>
+                        </div>
+                        <div class="info-section">
+                            <h4>Data</h4>
+                            <pre><code id="modalData"></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading visualizations...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="data-generator.js"></script>
+    <script src="visualizations.js"></script>
+    <script src="showcase.js"></script>
+</body>
+</html>
