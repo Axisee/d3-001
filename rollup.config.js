@@ -2,7 +2,7 @@ import {readFileSync} from "fs";
 import json from "@rollup/plugin-json";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
-import meta from "./package.json" assert {type: "json"};
+const meta = JSON.parse(readFileSync("./package.json", "utf-8"));
 
 // Extract copyrights from the LICENSE.
 const copyright = readFileSync("./LICENSE", "utf-8")

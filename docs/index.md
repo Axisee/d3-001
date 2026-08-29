@@ -26,6 +26,9 @@ hero:
       text: Get started
       link: /getting-started
     - theme: alt
+      text: Visualization Studio
+      link: /studio
+    - theme: alt
       text: What is D3?
       link: /what-is-d3
     - theme: alt
