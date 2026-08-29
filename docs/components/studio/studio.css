@@ -72,16 +72,15 @@
 
 .d3-studio-toolbar {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 0.75rem;
-  align-items: center;
+  align-items: stretch;
   padding: 0.9rem 1.5rem;
   border-bottom: 1px solid var(--studio-border);
 }
 
 .d3-studio-search {
-  flex: 1 1 16rem;
-  min-width: 12rem;
+  width: 100%;
   border: 1px solid var(--studio-border);
   border-radius: 10px;
   padding: 0.55rem 0.75rem;

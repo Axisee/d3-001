@@ -82,8 +82,8 @@
     "test": "mocha 'test/**/*-test.js' && eslint src test docs/components/studio/*.js",
     "prepublishOnly": "rm -rf dist && rollup -c",
     "postpublish": "git push && git push --tags",
-    "docs:dev": "node --experimental-network-imports node_modules/vitepress/dist/node/cli.js dev docs",
-    "docs:build": "./prebuild.sh && node --experimental-network-imports node_modules/vitepress/dist/node/cli.js build docs",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "./prebuild.sh && vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "engines": {

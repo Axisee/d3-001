@@ -170,7 +170,7 @@ onUnmounted(() => {
 
     <template v-if="mode === 'gallery'">
       <div class="d3-studio-toolbar">
-        <input v-model="query" class="d3-studio-search" type="search" placeholder="Search charts, tags, or descriptions">
+        <input v-model="query" class="d3-studio-search" type="search" placeholder="Search charts, tags, or descriptions" aria-label="Search visualizations">
         <div class="d3-studio-chips">
           <button
             v-for="item in CATEGORIES"
